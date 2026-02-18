@@ -32,19 +32,6 @@ if ($psReadLineModule -and $psReadLineModule.Version -ge [version]"2.2.0") {
         Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
         Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 
-        # Couleurs de syntaxe
-        Set-PSReadLineOption -Colors @{
-            Command   = '#61AFEF'
-            Parameter = '#ABB2BF'
-            Operator  = '#C678DD'
-            Variable  = '#E06C75'
-            String    = '#98C379'
-            Number    = '#D19A66'
-            Type      = '#56B6C2'
-            Comment   = '#5C6370'
-            Keyword   = '#C678DD'
-            Error     = '#F44747'
-        }
     } catch {
         # Silencieusement ignorer les erreurs PSReadLine
     }
@@ -135,10 +122,15 @@ function Get-PublicIP {
     (Invoke-RestMethod -Uri "https://api.ipify.org?format=json").ip
 }
 
-# Vider le terminal avec style
-function Clear-Host {
-    [System.Console]::Clear()
-    [System.Console]::SetCursorPosition(0, 0)
+# Supprime / Désactive / Active l'historique d'autocomplétion (PSReadLine) - ne fonctionne que pour la session en cours
+function Rm-History {
+    Remove-Item -Path (Get-PSReadLineOption).HistorySavePath
+}
+function No-History {
+    Set-PSReadLineOption -HistorySaveStyle SaveNothing
+}
+function Sv-History {
+    Set-PSReadLineOption -HistorySaveStyle SaveHistory
 }
 
 # Recharger le profil
@@ -151,4 +143,3 @@ function Reload-Profile {
 # Message de bienvenue
 # ------------------------------------------
 Write-Host "PowerShell $($PSVersionTable.PSVersion)"
-Write-Host " "

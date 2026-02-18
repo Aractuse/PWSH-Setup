@@ -400,8 +400,8 @@ $inputXML = @'
                             <Button Name="BtnSelectMin"  Content="Minimal" Style="{StaticResource Secondary}"/>
                         </StackPanel>
 
-                        <!-- ── Section : COMPOSANTS PRINCIPAUX ── -->
-                        <TextBlock Text="COMPOSANTS PRINCIPAUX" Foreground="#0078D4" FontSize="11"
+                        <!-- ── Section : PRINCIPAUX ── -->
+                        <TextBlock Text="PRINCIPAUX" Foreground="#0078D4" FontSize="11"
                                    FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,6"/>
                         <Border Background="#FAFAFA" BorderBrush="#E0E0E0" BorderThickness="1"
                                 CornerRadius="2" Padding="14,10" Margin="0,0,0,12">
@@ -419,121 +419,62 @@ $inputXML = @'
                                     <CheckBox.ToolTip>
                                         <ToolTip>
                                             <TextBlock>
-                                                <Run FontWeight="SemiBold">PowerShell 7 (pwsh)</Run><LineBreak/>
-                                                Derniere version cross-platform de PowerShell. Remplace Windows PowerShell 5.1
-                                                avec de meilleures performances, une syntaxe moderne et un support des modules
-                                                actuels.<LineBreak/>
-                                                <Run Foreground="#888888">Source : winget — Microsoft.PowerShell</Run>
+                                                Derniere version cross-platform de PowerShell.
                                             </TextBlock>
                                         </ToolTip>
                                     </CheckBox.ToolTip>
                                 </CheckBox>
-                                <TextBlock Grid.Row="0" Grid.Column="1" Name="StatusPwsh" FontSize="11"
+                                <TextBlock Grid.Row="0" Grid.Column="1" Name="StatusPwsh" FontSize="8"
+                                           VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <!-- Profil PowerShell -->
+                                <CheckBox Grid.Row="1" Grid.Column="0" Name="ChkProfile" IsChecked="True"
+                                          Content="Profil PowerShell">
+                                    <CheckBox.ToolTip>
+                                        <ToolTip>
+                                            <TextBlock>
+                                                Installe le fichier profile.ps1 personnel.<LineBreak/>
+                                                Configure les alias, fonctions utilitaires
+                                            </TextBlock>
+                                        </ToolTip>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Name="StatusProfile" FontSize="8"
                                            VerticalAlignment="Center" Margin="10,0,0,0"/>
 
                                 <!-- Terminal-Icons -->
-                                <CheckBox Grid.Row="1" Grid.Column="0" Name="ChkIcons" IsChecked="True" Content="Terminal-Icons">
+                                <CheckBox Grid.Row="2" Grid.Column="0" Name="ChkIcons" IsChecked="True" Content="Terminal-Icons">
                                     <CheckBox.ToolTip>
                                         <ToolTip>
                                             <TextBlock>
-                                                <Run FontWeight="SemiBold">Terminal-Icons</Run><LineBreak/>
-                                                Module PowerShell qui ajoute des icones colorees dans les listings de fichiers
-                                                (ls, Get-ChildItem). Necessite une Nerd Font pour s'afficher correctement.<LineBreak/>
-                                                <Run Foreground="#888888">Source : PSGallery</Run>
+                                                Module PowerShell qui ajoute des icones colorees.<LineBreak/>
+                                                Necessite une Nerd Font pour s'afficher correctement.
                                             </TextBlock>
                                         </ToolTip>
                                     </CheckBox.ToolTip>
                                 </CheckBox>
-                                <TextBlock Grid.Row="1" Grid.Column="1" Name="StatusIcons" FontSize="11"
+                                <TextBlock Grid.Row="2" Grid.Column="1" Name="StatusIcons" FontSize="8"
                                            VerticalAlignment="Center" Margin="10,0,0,0"/>
 
                                 <!-- PSReadLine -->
-                                <CheckBox Grid.Row="2" Grid.Column="0" Name="ChkReadLine" IsChecked="True" Content="PSReadLine">
+                                <CheckBox Grid.Row="3" Grid.Column="0" Name="ChkReadLine" IsChecked="True" Content="PSReadLine">
                                     <CheckBox.ToolTip>
                                         <ToolTip>
                                             <TextBlock>
-                                                <Run FontWeight="SemiBold">PSReadLine</Run><LineBreak/>
-                                                Ameliore l'autocompletion, la coloration syntaxique et l'historique dans
-                                                le terminal PowerShell. Suggestion de commandes en gris au fil de la frappe.<LineBreak/>
-                                                <Run Foreground="#888888">Source : PSGallery</Run>
+                                                Ameliore l'autocompletion.<LineBreak/>
+                                                Suggestion de commandes en au fil de la frappe.
                                             </TextBlock>
                                         </ToolTip>
                                     </CheckBox.ToolTip>
                                 </CheckBox>
-                                <TextBlock Grid.Row="2" Grid.Column="1" Name="StatusReadLine" FontSize="11"
+                                <TextBlock Grid.Row="3" Grid.Column="1" Name="StatusReadLine" FontSize="8"
                                            VerticalAlignment="Center" Margin="10,0,0,0"/>
 
-                                <!-- Yazi -->
-                                <CheckBox Grid.Row="3" Grid.Column="0" Name="ChkYazi" IsChecked="True" Content="Yazi">
-                                    <CheckBox.ToolTip>
-                                        <ToolTip>
-                                            <TextBlock>
-                                                <Run FontWeight="SemiBold">Yazi</Run><LineBreak/>
-                                                Gestionnaire de fichiers TUI (terminal) ultrarapide. Navigation au clavier,
-                                                apercu de fichiers, operations par lot. Alternative moderne a l'explorateur
-                                                Windows dans le terminal.<LineBreak/>
-                                                <Run Foreground="#888888">Source : winget — sxyazi.yazi</Run>
-                                            </TextBlock>
-                                        </ToolTip>
-                                    </CheckBox.ToolTip>
-                                </CheckBox>
-                                <TextBlock Grid.Row="3" Grid.Column="1" Name="StatusYazi" FontSize="11"
-                                           VerticalAlignment="Center" Margin="10,0,0,0"/>
                             </Grid>
                         </Border>
 
-                        <!-- ── Section : EN COMPLEMENT ── -->
-                        <TextBlock Text="EN COMPLEMENT" Foreground="#0078D4" FontSize="11"
-                                   FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,6"/>
-                        <Border Background="#FAFAFA" BorderBrush="#E0E0E0" BorderThickness="1"
-                                CornerRadius="2" Padding="14,10" Margin="0,0,0,12">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/><RowDefinition/>
-                                </Grid.RowDefinitions>
-
-                                <!-- Zoxide -->
-                                <CheckBox Grid.Row="0" Grid.Column="0" Name="ChkZoxide" IsChecked="True" Content="Zoxide">
-                                    <CheckBox.ToolTip>
-                                        <ToolTip>
-                                            <TextBlock>
-                                                <Run FontWeight="SemiBold">Zoxide</Run><LineBreak/>
-                                                Navigation intelligente dans les dossiers. Memorise vos dossiers visites
-                                                et permet d'y acceder rapidement avec "z nom".
-                                                Exemple : taper "z docs" saute directement dans Documents.<LineBreak/>
-                                                <Run Foreground="#888888">Source : winget — ajeetdsouza.zoxide</Run>
-                                            </TextBlock>
-                                        </ToolTip>
-                                    </CheckBox.ToolTip>
-                                </CheckBox>
-                                <TextBlock Grid.Row="0" Grid.Column="1" Name="StatusZoxide" FontSize="11"
-                                           VerticalAlignment="Center" Margin="10,0,0,0"/>
-
-                                <!-- Vim -->
-                                <CheckBox Grid.Row="1" Grid.Column="0" Name="ChkVim" IsChecked="False" Content="Vim">
-                                    <CheckBox.ToolTip>
-                                        <ToolTip>
-                                            <TextBlock>
-                                                <Run FontWeight="SemiBold">Vim</Run><LineBreak/>
-                                                Editeur de texte modal en ligne de commande, hautement configurable.
-                                                Ideal pour editer des fichiers de configuration directement dans le terminal
-                                                sans quitter la session.<LineBreak/>
-                                                <Run Foreground="#888888">Source : winget — vim.vim</Run>
-                                            </TextBlock>
-                                        </ToolTip>
-                                    </CheckBox.ToolTip>
-                                </CheckBox>
-                                <TextBlock Grid.Row="1" Grid.Column="1" Name="StatusVim" FontSize="11"
-                                           VerticalAlignment="Center" Margin="10,0,0,0"/>
-                            </Grid>
-                        </Border>
-
-                        <!-- ── Section : CONFIGURATION ── -->
-                        <TextBlock Text="CONFIGURATION" Foreground="#0078D4" FontSize="11"
+                         <!-- ── Section : PERSONNALISATION ── -->
+                        <TextBlock Text="PERSONNALISATION" Foreground="#0078D4" FontSize="11"
                                    FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,6"/>
                         <Border Background="#FAFAFA" BorderBrush="#E0E0E0" BorderThickness="1"
                                 CornerRadius="2" Padding="14,10" Margin="0,0,0,4">
@@ -547,59 +488,89 @@ $inputXML = @'
                                 </Grid.RowDefinitions>
 
                                 <!-- Police -->
-                                <CheckBox Grid.Row="0" Grid.Column="0" Name="ChkFont" IsChecked="True"
+                                <CheckBox Grid.Row="0" Grid.Column="0" Name="ChkFont" IsChecked="False"
                                           Content="Police CascadiaCode Nerd Font">
                                     <CheckBox.ToolTip>
                                         <ToolTip>
                                             <TextBlock>
-                                                <Run FontWeight="SemiBold">CascadiaCode Nerd Font</Run><LineBreak/>
-                                                Police de programmation avec ligatures et icones Nerd Font integrees.
-                                                Requise pour l'affichage correct de Terminal-Icons et d'un prompt
-                                                personnalise.<LineBreak/>
-                                                <Run Foreground="#CC5500" FontWeight="SemiBold">Droits administrateur requis.</Run><LineBreak/>
-                                                <Run Foreground="#888888">Source : GitHub ryanoasis/nerd-fonts</Run>
+                                                Police avec icones Nerd Font integrees.<LineBreak/>
+                                                Requise pour l'affichage correct de Terminal-Icons<LineBreak/>
+                                                <Run FontWeight="SemiBold">Droits administrateur requis.</Run>
                                             </TextBlock>
                                         </ToolTip>
                                     </CheckBox.ToolTip>
                                 </CheckBox>
-                                <TextBlock Grid.Row="0" Grid.Column="1" Name="StatusFont" FontSize="11"
-                                           VerticalAlignment="Center" Margin="10,0,0,0"/>
-
-                                <!-- Profil PowerShell -->
-                                <CheckBox Grid.Row="1" Grid.Column="0" Name="ChkProfile" IsChecked="True"
-                                          Content="Profil PowerShell">
-                                    <CheckBox.ToolTip>
-                                        <ToolTip>
-                                            <TextBlock>
-                                                <Run FontWeight="SemiBold">Profil PowerShell</Run><LineBreak/>
-                                                Installe le fichier profile.ps1 personnalise dans
-                                                Documents\PowerShell\. Configure les alias, fonctions utilitaires
-                                                et l'initialisation de Zoxide au demarrage de chaque session.<LineBreak/>
-                                                <Run Foreground="#888888">Source : depot GitHub personnel</Run>
-                                            </TextBlock>
-                                        </ToolTip>
-                                    </CheckBox.ToolTip>
-                                </CheckBox>
-                                <TextBlock Grid.Row="1" Grid.Column="1" Name="StatusProfile" FontSize="11"
+                                <TextBlock Grid.Row="0" Grid.Column="1" Name="StatusFont" FontSize="8"
                                            VerticalAlignment="Center" Margin="10,0,0,0"/>
 
                                 <!-- Config Windows Terminal -->
-                                <CheckBox Grid.Row="2" Grid.Column="0" Name="ChkTerminal" IsChecked="True"
+                                <CheckBox Grid.Row="1" Grid.Column="0" Name="ChkTerminal" IsChecked="True"
                                           Content="Config Windows Terminal">
                                     <CheckBox.ToolTip>
                                         <ToolTip>
                                             <TextBlock>
-                                                <Run FontWeight="SemiBold">Configuration Windows Terminal</Run><LineBreak/>
-                                                Applique le fichier settings.json personnalise a Windows Terminal :
+                                                Applique le fichier settings.json<LineBreak/>
                                                 theme, police, transparence et raccourcis clavier.
-                                                Un backup de votre configuration actuelle est cree
-                                                automatiquement avant remplacement.<LineBreak/>
-                                                <Run Foreground="#888888">Source : depot GitHub personnel</Run>
                                             </TextBlock>
                                         </ToolTip>
                                     </CheckBox.ToolTip>
                                 </CheckBox>
-                                <TextBlock Grid.Row="2" Grid.Column="1" Name="StatusTerminal" FontSize="11"
+                                <TextBlock Grid.Row="1" Grid.Column="1" Name="StatusTerminal" FontSize="8"
+                                           VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- ── Section : COMPLEMENT ── -->
+                        <TextBlock Text="COMPLEMENT" Foreground="#0078D4" FontSize="11"
+                                   FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,6"/>
+                        <Border Background="#FAFAFA" BorderBrush="#E0E0E0" BorderThickness="1"
+                                CornerRadius="2" Padding="14,10" Margin="0,0,0,12">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/><RowDefinition/><RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Yazi -->
+                                <CheckBox Grid.Row="0" Grid.Column="0" Name="ChkYazi" IsChecked="True" Content="Yazi">
+                                    <CheckBox.ToolTip>
+                                        <ToolTip>
+                                            <TextBlock>
+                                                Gestionnaire de fichiers TUI (terminal)
+                                            </TextBlock>
+                                        </ToolTip>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Name="StatusYazi" FontSize="8"
+                                           VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <!-- Zoxide -->
+                                <CheckBox Grid.Row="1" Grid.Column="0" Name="ChkZoxide" IsChecked="False" Content="Zoxide">
+                                    <CheckBox.ToolTip>
+                                        <ToolTip>
+                                            <TextBlock>
+                                                Navigation intelligente dans les dossiers.
+                                            </TextBlock>
+                                        </ToolTip>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Name="StatusZoxide" FontSize="8"
+                                           VerticalAlignment="Center" Margin="10,0,0,0"/>
+
+                                <!-- Vim -->
+                                <CheckBox Grid.Row="2" Grid.Column="0" Name="ChkVim" IsChecked="False" Content="Vim">
+                                    <CheckBox.ToolTip>
+                                        <ToolTip>
+                                            <TextBlock>
+                                                Editeur de texte modal en ligne de commande.
+                                            </TextBlock>
+                                        </ToolTip>
+                                    </CheckBox.ToolTip>
+                                </CheckBox>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Name="StatusVim" FontSize="8"
                                            VerticalAlignment="Center" Margin="10,0,0,0"/>
                             </Grid>
                         </Border>
@@ -620,10 +591,7 @@ $inputXML = @'
                                 <CheckBox.ToolTip>
                                     <ToolTip>
                                         <TextBlock>
-                                            <Run FontWeight="SemiBold">Mode Force</Run><LineBreak/>
-                                            Force la reinstallation de tous les composants selectionnes, meme
-                                            s'ils sont deja presents. Utile pour remettre a zero une configuration
-                                            corrompue ou mettre a jour vers la derniere version disponible.
+                                            Force la reinstallation de tous les composants selectionnes.
                                         </TextBlock>
                                     </ToolTip>
                                 </CheckBox.ToolTip>
@@ -649,9 +617,17 @@ $inputXML = @'
                         <TextBlock Text="A PROPOS" Foreground="#0078D4" FontSize="11"
                                    FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,6"/>
                         <Border Background="#FAFAFA" BorderBrush="#E0E0E0" BorderThickness="1"
-                                CornerRadius="2" Padding="14,10">
+                                CornerRadius="2" Padding="14,10" Margin="0,0,0,12">
                             <TextBlock Foreground="#555555" FontSize="12" FontFamily="Segoe UI" TextWrapping="Wrap"
                                        Text="Kit de deploiement PowerShell 7 — Installe et configure un environnement terminal moderne sur Windows 10/11. Installation automatisee via winget et PSGallery."/>
+                        </Border>
+
+                        <TextBlock Text="AUTEUR" Foreground="#0078D4" FontSize="11"
+                                   FontWeight="SemiBold" FontFamily="Segoe UI" Margin="0,0,0,6"/>
+                        <Border Background="#FAFAFA" BorderBrush="#E0E0E0" BorderThickness="1"
+                                CornerRadius="2" Padding="14,10">
+                            <TextBlock Foreground="#555555" FontSize="12" FontFamily="Segoe UI" TextWrapping="Wrap"
+                                       Text="Matthieu Taeckens"/>
                         </Border>
 
                     </StackPanel>
