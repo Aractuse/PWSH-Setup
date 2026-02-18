@@ -2,16 +2,6 @@
 # =====================
 
 # ------------------------------------------
-# Oh-My-Posh - Prompt personnalisé
-# ------------------------------------------
-$OmpThemePath = Join-Path $env:POSH_THEMES_PATH "mytheme.omp.json"
-if (Test-Path $OmpThemePath) {
-    oh-my-posh init pwsh --config $OmpThemePath | Invoke-Expression
-} else {
-    Write-Warning "Thème Oh-My-Posh non trouvé: $OmpThemePath"
-}
-
-# ------------------------------------------
 # Terminal-Icons - Icônes dans le terminal
 # ------------------------------------------
 if (Get-Module -ListAvailable -Name Terminal-Icons) {

@@ -4,22 +4,7 @@ Desinstallation pas a pas de chaque composant. Choisissez uniquement ce que vous
 
 ---
 
-## 1. Oh-My-Posh
-
-```powershell
-# Desinstaller l'application
-winget uninstall --id JanDeDobbeleer.OhMyPosh
-
-# Supprimer le theme personnalise
-Remove-Item "$env:POSH_THEMES_PATH\mytheme.omp.json" -Force -ErrorAction SilentlyContinue
-
-# Supprimer la variable d'environnement
-[Environment]::SetEnvironmentVariable("POSH_THEMES_PATH", $null, "User")
-```
-
----
-
-## 2. Modules PowerShell
+## 1. Modules PowerShell
 
 Executez dans **PowerShell 7** (`pwsh`) :
 
@@ -41,7 +26,7 @@ Get-Module -ListAvailable Terminal-Icons, PSReadLine
 
 ---
 
-## 3. Zoxide
+## 2. Zoxide
 
 ```powershell
 # Desinstaller l'application
@@ -53,7 +38,7 @@ Remove-Item "$env:LOCALAPPDATA\zoxide" -Recurse -Force -ErrorAction SilentlyCont
 
 ---
 
-## 4. Vim
+## 3. Vim
 
 ```powershell
 # Desinstaller l'application
@@ -67,7 +52,7 @@ $newPath = ($currentPath -split ';' | Where-Object { $_ -notlike "*Vim*" }) -joi
 
 ---
 
-## 5. Yazi
+## 4. Yazi
 
 ```powershell
 # Desinstaller l'application
@@ -79,7 +64,7 @@ Remove-Item "$env:APPDATA\yazi" -Recurse -Force -ErrorAction SilentlyContinue
 
 ---
 
-## 6. Police CascadiaCode Nerd Font
+## 5. Police CascadiaCode Nerd Font
 
 ### Option A : Commande PowerShell (admin requis)
 
@@ -103,7 +88,7 @@ Get-ChildItem "C:\Windows\Fonts" | Where-Object { $_.Name -like "*Caskaydia*" } 
 
 ---
 
-## 7. Profil PowerShell
+## 6. Profil PowerShell
 
 ```powershell
 # Supprimer le profil PowerShell 7
@@ -118,7 +103,7 @@ if ((Get-ChildItem $profileDir -ErrorAction SilentlyContinue).Count -eq 0) {
 
 ---
 
-## 8. Windows Terminal
+## 7. Windows Terminal
 
 ### Restaurer la configuration d'origine
 
@@ -143,7 +128,7 @@ Remove-Item "$wtPath\settings.json" -Force
 
 ---
 
-## 9. PowerShell 7 (optionnel)
+## 8. PowerShell 7 (optionnel)
 
 ```powershell
 winget uninstall --id Microsoft.PowerShell
